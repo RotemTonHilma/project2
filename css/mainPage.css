@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    /* border: 1px solid black; */
+}
+
+
+html {
+    background-color: rgba(112, 23, 115, 0.7);
+    color: white;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    max-width: 100px;
+    width: 10%;
+}
+
+#existing-users {
+    margin: 10px;
+    background-color: rgba(112, 23, 115, 0.4);
+    padding: 10px;
+}
+
+#existing-users h3 {
+    border-bottom: 1px dotted white;
+    padding-bottom: 3px;
+}
+
+#existing-users div {
+    font-size: 0.8em;
+    position: relative;
+    width: 90%;
+    left: 10px;
+    margin-bottom: 10px;
+    border: 1px dashed white;
+    padding: 5px;
+}
+
+#sign-up-btn {
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 5px;
+    background-color: rgb(253, 235, 212);
+    margin: 10px auto;
+    margin-top: 30px;
+    display: block;
+}
+
+#sign-up-section {
+    font-size: 0.8em;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(112, 23, 115, 0.3);
+}
+
+#sign-up-section input {
+    font-size: 0.8em;
+    position: relative;
+    width: 90%;
+    left: 10px;
+    margin: 10px;
+    border: 1px dashed white;
+    padding: 5px;
+}
+
+#enter-new-user {
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 5px;
+    background-color: rgb(253, 235, 212);
+    margin: 10px auto;
+    display: block;
+}
