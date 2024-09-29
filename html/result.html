@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <link rel="stylesheet" href="../css/game.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <hi>משחקים</hi>
+        <img src="https://play-lh.googleusercontent.com/H9KvtJKeUwDydgj1o14dxc0vnrL0U2wjG8rPSma45gd2fBmvniPUwzeJgch7D7TDNA=w240-h480" width="100">
+        <img src="https://play-lh.googleusercontent.com/EdYMqphxFLNjWYRDzZ0pFKxbYgfuMZarMdK0RCi-NCrvPztYRbBx8r1aRVw4trzAJ-s=s64" width="100">
+        <img src="https://play-lh.googleusercontent.com/njQEbFu-ZwKfgvbd0_34vjWNvHOKCKOiVzTXDHlhRp992im5_j_dVil36-BmzHgcNnaf=w240-h480" width="100">
+        <img src="https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg=s48" width="100">
+        <img src="https://play-lh.googleusercontent.com/bPz1guJ6FHF3oIOEy3KqwpaDDKO-hLRaZoyzmM8bLFLN8fWm6L0_EuUnkwv9iqPo3Ag=s48" width="100">
+    </header>
+    <div class="game">
+        <main>
+            <h2>טבלת מנצחים</h2>
+            <table>
+                <tr>
+                    <th>שם משתמש</th>
+                    <th>מספר משחקים</th>
+                </tr>
+                <tr>
+                    <td id="user1">adiho123</td>
+                    <td id="first">3</td>
+                </tr>
+                <tr>
+                    <td id="user2">ukgfu4</td>
+                    <td id="secend">2</td>
+                </tr>
+                <tr>
+                    <td id="user3">greg11</td>
+                    <td id="third">2</td>
+                </tr>
+            </table>
+            <script>
+                if(num> document.getElementById('first').innerHTML){
+                    document.getElementById('first').innerHTML=num;
+                    document.getElementById('user1').innerHTML=name;
+                }
+                if(num> document.getElementById('secend').innerHTML){
+                    document.getElementById('secend').innerHTML=num;
+                    document.getElementById('user2').innerHTML=name;
+                }
+                if(num> document.getElementById('third').innerHTML){
+                    document.getElementById('third').innerHTML=num;
+                    document.getElementById('user3').innerHTML=name;
+                }
+            </script>
+        </main>
+        <footer>
+            <a href="./instruction.html">הוראות</a>
+            <a href="./game.html">בית</a>
+        </footer>
+    </div>
+</body>
+</html>
