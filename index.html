@@ -4,10 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            border: 1px solid black;
+            margin: 10px;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href=""> -->
 </head>
 
 <body>
+    <h1>Title</h1>
+
+    <div id="existing-users">
+
+    </div>
+
+    <button id="sign-up-btn">Sign Up</button>
+
+    <section id="sign-up-section">
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value=''>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" value='' name="password">
+
+            <button id="enter-new-user">Join</button>
+        </form>
+    </section>
+
+    <script src="./js/mainPage.js"></script>
 
 </body>
 
