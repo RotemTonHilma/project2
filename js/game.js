@@ -1,6 +1,8 @@
 const container = document.getElementById("square");
 let booly = true;
 let gameEnd = false;
+let isTie = false;
+let openAll = false;
 
 let numclick = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -32,7 +34,7 @@ function btnClick(localSquareNumber, smallSquareNumber) {
     numclick[localSquareNumber]++;
     if (booly) smallSquare.value = 'X'
     else smallSquare.value = 'O'
-    checkLocalWin(localSquareNumber);
+    checkLocalWin(localSquareNumber, smallSquareNumber);
 
 
     if (!gameEnd) {
@@ -45,21 +47,42 @@ function btnClick(localSquareNumber, smallSquareNumber) {
             for (let j = 0; j < cells[i].length; j++) {
                 cells[i][j].disabled = false;
                 if (
-                    !container.children[nextLocalSquare].classList.contains("taken") &&
-                    cells[i][j].value === ''
-                    && i !== nextLocalSquare)
+                    !openAll
+                    && !container.children[nextLocalSquare].classList.contains("taken")
+                    && cells[i][j].value === ''
+                    && i !== nextLocalSquare) {
                     cells[i][j].disabled = true;
+                }
+
             }
         }
-    }
 
-    // setTimeout(() => (
-    //     alert(this.value + " won")
-    // ), 100)
+    }
+    else {
+        //tie
+        if (isTie)
+            setTimeout(() => (
+                alert("It's a tie")
+            ), 100);
+        //someone won
+        else {
+            if (booly) //x won
+                setTimeout(() => (
+                    alert("X Won")
+                ), 100);
+            else
+                setTimeout(() => (
+                    alert("O Won")
+                ), 100);
+        }
+    }
+    openAll = false;
 
 }
+
+
+
 function reset() {
-    booly = !booly; //victor starts
     for (let i = 0; i < numclick.length; i++) {
         numclick[i] = 0;
     }
@@ -72,17 +95,21 @@ function reset() {
 }
 
 
-function checkLocalWin(localSquareNumber) {
+function checkLocalWin(localSquareNumber, smallSquareNumber) {
+
     if (wonLocal(localSquareNumber, "X")) {
+        if (localSquareNumber === smallSquareNumber) openAll = true;
         claimLocalSquare(localSquareNumber, "X");
         checkGlobalWin();
     }
     else if (wonLocal(localSquareNumber, "O")) {
+        if (localSquareNumber === smallSquareNumber) openAll = true;
         claimLocalSquare(localSquareNumber, "O");
         checkGlobalWin();
     }
     //check tie
     else if (numclick[localSquareNumber] === 9) {
+        if (localSquareNumber === smallSquareNumber) openAll = true;
         setLocalTie(localSquareNumber);
         checkGlobalWin();
     }
@@ -126,17 +153,21 @@ function setLocalTie(localSquareNumber) {
     localSquare.style.display = "block";
     localSquare.style.textAlign = "center";
     localSquare.style.fontSize = "7em";
-    localStorage.style.backgroundColor = "gray";
+    localSquare.style.backgroundColor = "gray";
     localSquare.classList.add("taken");
-    booly = !booly;
 }
 
 function checkGlobalWin() {
+    //for tie segment  
+    let flag = true;
+    for (let i = 0; i < container.children.length; i++) {
+        if (!container.children[i].classList.contains("taken")) flag = false;
+    }
+
     if (wonGlobal("X")) {
         //color
         //X win message
         gameEnd = true;
-        alert("X won");
         //disable all cells
         cells.forEach(local => {
             local.disabled = true;
@@ -153,17 +184,17 @@ function checkGlobalWin() {
         //color
         //O win message
         gameEnd = true;
-        alert("O won");
         //disable all cells
         cells.forEach(local => {
             local.disabled = true;
         });
     }
     //tie
-    else if (numclick.every(x => x === 9)) {
+
+    else if (flag) {
         //tie message
         gameEnd = true;
-        alert("tie");
+        isTie = true;
         //disable all cells
         cells.forEach(local => {
             local.disabled = true;
