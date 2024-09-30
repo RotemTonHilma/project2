@@ -1,4 +1,4 @@
-// localStorage.clear();
+
 //check if the page is opened for the first time
 if (localStorage.getItem("users") === null) {
     let userArray = [];
@@ -96,4 +96,9 @@ function addUser() {
     userArray.push(newUser);
     console.log(userArray);
     localStorage.users = JSON.stringify(userArray);
+}
+
+//cat audio
+function meow(audioFile) {
+    new Audio(audioFile).play();
 }
