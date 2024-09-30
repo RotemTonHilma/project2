@@ -5,7 +5,8 @@ if (localStorage.getItem("users") === null) {
 
     userArray.push({
         'username': 'guest',
-        'password': '123'
+        'password': '123',
+        'wins': 0
     });
 
 
@@ -87,7 +88,8 @@ enterUserBtn.addEventListener("click", addUser);
 function addUser() {
     const newUser = {
         'username': document.getElementById("username").value,
-        'password': document.getElementById("password").value
+        'password': document.getElementById("password").value,
+        'wins': 0
     }
     const userArray = JSON.parse(localStorage.users);
     console.log(userArray);
