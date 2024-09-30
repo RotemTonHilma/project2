@@ -42,13 +42,14 @@ main {
     border: 1px solid black;
     display: grid;
     grid-template: repeat(3, 1fr)/repeat(3, 1fr);
-
 }
 
 #square>div>input {
     width: 92%;
     height: 92%;
     border: 1px solid black;
+    text-align: center;
+    font-size: 2em;
 }
 
 main div {

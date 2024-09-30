@@ -1,5 +1,6 @@
 const container = document.getElementById("square");
 let booly = true;
+let gameEnd = false;
 
 let numclick = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -33,14 +34,22 @@ function btnClick(localSquareNumber, smallSquareNumber) {
     else smallSquare.value = 'O'
     checkLocalWin(localSquareNumber);
 
-    booly = !booly;
 
-    //disable squares outside of next local square
-    let nextLocalSquare = smallSquareNumber;
-    for (let i = 0; i < cells.length; i++) {
-        for (let j = 0; j < cells[i].length; j++) {
-            cells[i][j].disabled = false;
-            if (cells[i][j].value === '' && i !== nextLocalSquare) cells[i][j].disabled = true;
+    if (!gameEnd) {
+        booly = !booly;
+
+        //disable squares outside of next local square
+
+        let nextLocalSquare = smallSquareNumber;
+        for (let i = 0; i < cells.length; i++) {
+            for (let j = 0; j < cells[i].length; j++) {
+                cells[i][j].disabled = false;
+                if (
+                    !container.children[nextLocalSquare].classList.contains("taken") &&
+                    cells[i][j].value === ''
+                    && i !== nextLocalSquare)
+                    cells[i][j].disabled = true;
+            }
         }
     }
 
@@ -98,20 +107,25 @@ function wonLocal(localSquareNumber, sign) {
 }
 
 function claimLocalSquare(localSquareNumber, sign) {
-    localSquare = cells[localSquareNumber];
+    localSquare = container.children[localSquareNumber];
     //erase all little squares
     while (localSquare.firstChild)
         localSquare.removeChild(localSquare.lastChild);
+    localSquare.style.display = "block";
+    localSquare.style.textAlign = "center";
+    localSquare.style.fontSize = "7em";
     localSquare.innerText = sign;
     localSquare.classList.add("taken");
-    booly = !booly;
 }
 
 function setLocalTie(localSquareNumber) {
-    localSquare = cells[localSquareNumber];
+    localSquare = container.children[localSquareNumber];
     //erase all little squares
     while (localSquare.firstChild)
         localSquare.removeChild(localSquare.lastChild);
+    localSquare.style.display = "block";
+    localSquare.style.textAlign = "center";
+    localSquare.style.fontSize = "7em";
     localStorage.style.backgroundColor = "gray";
     localSquare.classList.add("taken");
     booly = !booly;
@@ -121,6 +135,8 @@ function checkGlobalWin() {
     if (wonGlobal("X")) {
         //color
         //X win message
+        gameEnd = true;
+        alert("X won");
         //disable all cells
         cells.forEach(local => {
             local.disabled = true;
@@ -133,17 +149,21 @@ function checkGlobalWin() {
         }
         localStorage.users = JSON.stringify(users);
     }
-    else if (wonGlobal("0")) {
+    else if (wonGlobal("O")) {
         //color
         //O win message
+        gameEnd = true;
+        alert("O won");
         //disable all cells
         cells.forEach(local => {
             local.disabled = true;
         });
     }
     //tie
-    else if (numclick.every(X => x === 9)) {
+    else if (numclick.every(x => x === 9)) {
         //tie message
+        gameEnd = true;
+        alert("tie");
         //disable all cells
         cells.forEach(local => {
             local.disabled = true;
@@ -154,16 +174,16 @@ function checkGlobalWin() {
 function wonGlobal(sign) {
     if (
         //row wins
-        (cells[0].innerText === sign && cells[1].innerText === sign && cells[2].innerText === sign)
-        || (cells[3].innerText === sign && cells[4].innerText === sign && cells[5].innerText === sign)
-        || (cells[6].innerText === sign && cells[7].innerText === sign && cells[8].innerText === sign)
+        (container.children[0].innerText === sign && container.children[1].innerText === sign && container.children[2].innerText === sign)
+        || (container.children[3].innerText === sign && container.children[4].innerText === sign && container.children[5].innerText === sign)
+        || (container.children[6].innerText === sign && container.children[7].innerText === sign && container.children[8].innerText === sign)
         // column win
-        || (cells[0].innerText === sign && cells[3].innerText === sign && cells[6].innerText === sign)
-        || (cells[1].innerText === sign && cells[4].innerText === sign && cells[7].innerText === sign)
-        || (cells[2].innerText === sign && cells[5].innerText === sign && cells[8].innerText === sign)
+        || (container.children[0].innerText === sign && container.children[3].innerText === sign && container.children[6].innerText === sign)
+        || (container.children[1].innerText === sign && container.children[4].innerText === sign && container.children[7].innerText === sign)
+        || (container.children[2].innerText === sign && container.children[5].innerText === sign && container.children[8].innerText === sign)
         // axis win
-        || (cells[0].innerText === sign && cells[4].innerText === sign && cells[8].innerText === sign)
-        || (cells[2].innerText === sign && cells[4].innerText === sign && cells[6].innerText === sign)
+        || (container.children[0].innerText === sign && container.children[4].innerText === sign && container.children[8].innerText === sign)
+        || (container.children[2].innerText === sign && container.children[4].innerText === sign && container.children[6].innerText === sign)
     ) return true;
     return false;
 }
