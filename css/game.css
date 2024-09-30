@@ -1,69 +1,67 @@
-html{
+html {
     background-color: rgb(112, 23, 115);
-    color:white;
+    color: white;
 }
-body{
-    /* display: grid;
-    grid-template-areas:
-    "h h h h h"
-    "m m m m f";
-    grid-gap: 20px;
-    align-items: center;
-    justify-content: center; */
-}
-header{
+
+header {
     width: 100%;
     display: flex;
-    justify-content:space-around;
-    /* margin-left: 100px;
-    margin-right: 100px; */
-    /* padding-left: 100px;
-    padding-right: 100px; */
+    justify-content: space-around;
 
 }
-.game{
+
+.game {
     display: flex;
-    grid-template-columns:80% 20%;
-    justify-content:center;
+    grid-template-columns: 80% 20%;
+    justify-content: center;
     gap: 30px;
     flex-direction: row-reverse;
 }
-main{
+
+main {
     width: 600px;
     height: 600px;
     background-color: rgb(88, 37, 138);
-    /* grid-area: m; */
     box-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px rgb(93, 91, 91);
     margin-left: 30px;
 }
 
-#square{
-    width:100%;
-    height:100%;
+#square {
+    width: 100%;
+    height: 100%;
     background-color: white;
-    display:grid;
+    display: grid;
     align-items: center;
     justify-items: center;
-    grid-template: repeat(3,1fr)/repeat(3,1fr);
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
 }
 
-#square>div{
-    width:92%;
-    height:92%;
-    border:1px solid black;
+#square>div {
+    width: 92%;
+    height: 92%;
+    border: 1px solid black;
+    display: grid;
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+
 }
 
-main div{
+#square>div>div {
+    width: 92%;
+    height: 92%;
+    border: 1px solid black;
+}
+
+main div {
     background-color: rgb(88, 37, 138);
 
 }
 
-footer{
+footer {
     width: 10vw;
-    /* grid-area: f; */
     display: flex;
     flex-direction: column;
-    a{
-        color:white;
-    }
+}
+
+footer a {
+    color: white;
 }
