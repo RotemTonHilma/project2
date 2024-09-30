@@ -3,26 +3,30 @@ let booly = true;
 let gameEnd = false;
 let isTie = false;
 let openAll = false;
+let cells = [];
 
 let numclick = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+const element = document.getElementById("myBtn");
+element.addEventListener("click", reset);
 
+reset();
 //insert cells
-for (let i = 0; i < 9; i++) {
-    let lildiv = document.createElement("div");
-    container.appendChild(lildiv);
-    for (let j = 0; j < 9; j++) {
-        let smallestbtn = document.createElement("input");
-        smallestbtn.setAttribute("type", "text");
-        smallestbtn.setAttribute("readonly", "");
-        smallestbtn.addEventListener("click", function () { btnClick(i, j) });
-        lildiv.appendChild(smallestbtn);
-    }
-}
+// for (let i = 0; i < 9; i++) {
+//     let lildiv = document.createElement("div");
+//     container.appendChild(lildiv);
+//     for (let j = 0; j < 9; j++) {
+//         let smallestbtn = document.createElement("input");
+//         smallestbtn.setAttribute("type", "text");
+//         smallestbtn.setAttribute("readonly", "");
+//         smallestbtn.addEventListener("click", function () { btnClick(i, j) });
+//         lildiv.appendChild(smallestbtn);
+//     }
+// }
 
-const cells = [];
-for (let i = 0; i < 9; i++) {
-    cells.push(container.children[i].getElementsByTagName("input"));
-}
+// const cells = [];
+// for (let i = 0; i < 9; i++) {
+//     cells.push(container.children[i].getElementsByTagName("input"));
+// }
 
 
 function btnClick(localSquareNumber, smallSquareNumber) {
