@@ -1,29 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 html {
     background-color: rgb(112, 23, 115);
     color: white;
+    font-family: 'Press Start 2P', sans-serif;
 }
+body{
+    display: grid;
+    grid-template-areas:
+    "l h h h h"
+    "f m m m m";
+    column-gap: 200px;
+    /* row-gap: 10px; */
+    margin-left: 50px;
 
+}
 header {
+    grid-area: h;
+}
+
+/* .front {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-
-}
-
-.game {
-    display: flex;
+    height: 100%;
+    display:;
     grid-template-columns: 80% 20%;
-    justify-content: center;
-    gap: 30px;
-    flex-direction: row-reverse;
-}
+    gap: 100px;
+    /* margin-top: 20px; */
+
+
+
+/* .game {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 100px; */
+    /* margin-top: 50px; */
+    /* flex-direction: row-reverse;
+*/ 
 
 main {
     width: 600px;
     height: 600px;
     background-color: rgb(88, 37, 138);
     box-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px rgb(93, 91, 91);
-    margin-left: 30px;
+    grid-area: m;
+
 }
 
 #square {
@@ -58,10 +80,38 @@ main div {
 
 footer {
     width: 10vw;
+    grid-area: f;
     display: flex;
     flex-direction: column;
+    margin-top: 90px;
 }
 
 footer a {
     color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.instroction {
+    background-color: white;
+    color: black;
+    height: 3800px;
+    width: 600px;
+    line-height: 30px;
+    font-family:italic;
+    padding-left: 10px;
+    h2{
+        display: inline-block;
+    }
+    
+}
+
+.logo {
+    margin-left: 50px;
+    grid-area: l;
+}
+
+.cat {
+    border-radius: 20%;
 }
