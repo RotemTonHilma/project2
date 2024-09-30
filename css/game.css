@@ -67,7 +67,7 @@ main {
 
 }
 
-#square>div>div {
+#square>div>input {
     width: 92%;
     height: 92%;
     border: 1px solid black;
