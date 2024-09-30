@@ -84,18 +84,31 @@ function btnClick(localSquareNumber, smallSquareNumber) {
 
 }
 
-
-
 function reset() {
     for (let i = 0; i < numclick.length; i++) {
         numclick[i] = 0;
     }
-    cells.forEach(x => {
-        x.forEach(y => {
-            y.value = "";
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+    }
+
+    for (let i = 0; i < 9; i++) {
+        let lildiv = document.createElement("div");
+        container.appendChild(lildiv);
+        for (let j = 0; j < 9; j++) {
+            let smallestbtn = document.createElement("input");
+            smallestbtn.setAttribute("type", "text");
+            smallestbtn.setAttribute("readonly", "");
+            smallestbtn.addEventListener("click", function () { btnClick(i, j) });
+            lildiv.appendChild(smallestbtn);
         }
-        )
-    });
+    }
+
+    cells = [];
+    for (let i = 0; i < 9; i++) {
+        cells.push(container.children[i].getElementsByTagName("input"));
+    }
+
 }
 
 
