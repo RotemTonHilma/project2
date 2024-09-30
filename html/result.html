@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="../css/game.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="logo">
         <img class="cat" src="../media/5d8741d291364bdf63dd8c28f34101cf_t.jpeg" alt="8 bit cat" width="100">
         <p>Games</p>
     </div>
     <header>
-        <img src="https://play-lh.googleusercontent.com/H9KvtJKeUwDydgj1o14dxc0vnrL0U2wjG8rPSma45gd2fBmvniPUwzeJgch7D7TDNA=w240-h480" width="100">
-        <img src="https://play-lh.googleusercontent.com/EdYMqphxFLNjWYRDzZ0pFKxbYgfuMZarMdK0RCi-NCrvPztYRbBx8r1aRVw4trzAJ-s=s64" width="100">
-        <img src="https://play-lh.googleusercontent.com/njQEbFu-ZwKfgvbd0_34vjWNvHOKCKOiVzTXDHlhRp992im5_j_dVil36-BmzHgcNnaf=w240-h480" width="100">
-        <img src="https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg=s48" width="100">
-        <img src="https://play-lh.googleusercontent.com/bPz1guJ6FHF3oIOEy3KqwpaDDKO-hLRaZoyzmM8bLFLN8fWm6L0_EuUnkwv9iqPo3Ag=s48" width="100">
+        <img src="https://play-lh.googleusercontent.com/H9KvtJKeUwDydgj1o14dxc0vnrL0U2wjG8rPSma45gd2fBmvniPUwzeJgch7D7TDNA=w240-h480"
+            width="100">
+        <img src="https://play-lh.googleusercontent.com/EdYMqphxFLNjWYRDzZ0pFKxbYgfuMZarMdK0RCi-NCrvPztYRbBx8r1aRVw4trzAJ-s=s64"
+            width="100">
+        <img src="https://play-lh.googleusercontent.com/njQEbFu-ZwKfgvbd0_34vjWNvHOKCKOiVzTXDHlhRp992im5_j_dVil36-BmzHgcNnaf=w240-h480"
+            width="100">
+        <img src="https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg=s48"
+            width="100">
+        <img src="https://play-lh.googleusercontent.com/bPz1guJ6FHF3oIOEy3KqwpaDDKO-hLRaZoyzmM8bLFLN8fWm6L0_EuUnkwv9iqPo3Ag=s48"
+            width="100">
     </header>
     <div class="game">
         <main>
@@ -25,42 +32,64 @@
                 <table>
                     <tr>
                         <th>user name</th>
-                        <th>number of games</th>
+                        <th>number of games won</th>
                     </tr>
                     <tr>
-                        <td id="user1">adiho123</td>
-                        <td id="first">3</td>
+                        <td id="user1"></td>
+                        <td id="first"></td>
                     </tr>
                     <tr>
-                        <td id="user2">ukgfu4</td>
-                        <td id="second">2</td>
+                        <td id="user2"></td>
+                        <td id="second"></td>
                     </tr>
                     <tr>
-                        <td id="user3">greg11</td>
-                        <td id="third">2</td>
+                        <td id="user3"></td>
+                        <td id="third"></td>
                     </tr>
                 </table>
             </div>
         </main>
-            <script>
-                if(num> document.getElementById('first').innerHTML){
-                    document.getElementById('first').innerHTML=num;
-                    document.getElementById('user1').innerHTML=name;
+        <script>
+
+            const uArr = JSON.parse(localStorage["users"]);
+
+            function findMaxWins() {
+                let max = -1;
+                let maxIdx = -1;
+                let i = 0;
+                for (; i < uArr.length; i++) {
+                    if (uArr[i].wins > max) {
+                        max = uArr[i].wins;
+                        maxIdx = i;
+                    }
                 }
-                if(num> document.getElementById('secend').innerHTML){
-                    document.getElementById('secend').innerHTML=num;
-                    document.getElementById('user2').innerHTML=name;
-                }
-                if(num> document.getElementById('third').innerHTML){
-                    document.getElementById('third').innerHTML=num;
-                    document.getElementById('user3').innerHTML=name;
-                }
-            </script>
-        
+                return uArr.splice(maxIdx, 1)[0];
+
+            }
+            let firstUser = findMaxWins();
+            document.getElementById('first').innerHTML = firstUser.wins;
+            document.getElementById('user1').innerHTML = firstUser.username;
+
+            if (uArr.length > 0) {
+                let secondUser = findMaxWins();
+                document.getElementById('second').innerHTML = secondUser.wins;
+                document.getElementById('user2').innerHTML = secondUser.username;
+            }
+
+            if (uArr.length > 0) {
+                let thirdUser = findMaxWins();
+                document.getElementById('third').innerHTML = thirdUser.wins;
+                document.getElementById('user3').innerHTML = thirdUser.username;
+            }
+
+
+        </script>
+
         <footer>
             <a href="./instruction.html">Instraction</a><br><br>
             <a href="./game.html">home</a>
         </footer>
     </div>
 </body>
+
 </html>
