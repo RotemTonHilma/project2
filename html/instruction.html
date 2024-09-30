@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl">
+<html>
 <head>
     <link rel="stylesheet" href="../css/game.css">
     <meta charset="UTF-8">
@@ -7,28 +7,71 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="logo">
+        <img class="cat" src="../media/5d8741d291364bdf63dd8c28f34101cf_t.jpeg" alt="8 bit cat" width="100">
+        <p>Games</p>
+    </div>
     <header>
-        <hi>משחקים</hi>
         <img src="https://play-lh.googleusercontent.com/H9KvtJKeUwDydgj1o14dxc0vnrL0U2wjG8rPSma45gd2fBmvniPUwzeJgch7D7TDNA=w240-h480" width="100">
         <img src="https://play-lh.googleusercontent.com/EdYMqphxFLNjWYRDzZ0pFKxbYgfuMZarMdK0RCi-NCrvPztYRbBx8r1aRVw4trzAJ-s=s64" width="100">
         <img src="https://play-lh.googleusercontent.com/njQEbFu-ZwKfgvbd0_34vjWNvHOKCKOiVzTXDHlhRp992im5_j_dVil36-BmzHgcNnaf=w240-h480" width="100">
         <img src="https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg=s48" width="100">
         <img src="https://play-lh.googleusercontent.com/bPz1guJ6FHF3oIOEy3KqwpaDDKO-hLRaZoyzmM8bLFLN8fWm6L0_EuUnkwv9iqPo3Ag=s48" width="100">
     </header>
-    <div class="game">
         <main>
-            <h2>מטרת כל שחקן היא ליצור שלושה סימנים (איקס או עיגול) הנמצאים על שורה אחת
-                טור אחד או אלכסון אחד. 
-                שני שחקנים, כל שחקן בוחר סימן, איקס או עיגול (בד"כ איקס מתחיל במשחק). 
-                השחקן הראשון מציב את הסימן שלו במקום כלשהו על הלוח. לאחר מכן השחקן השני 
-                שם את סימנו וחוזר חלילה עד אשר אחד השחקנים יצר רצף של שלושה סימנים שלו
-                בשורה אחת, טור אחד או אלכסון אחד ובכך הוא ניצח או עד אשר כל הלוח מתמלא
-                ואף אחד מהשחקנים לא הצליח ליצור רצף, במקרה כזה תוצאת המשחק היא תיקו.
-            </h2>
+            <div class="instroction">
+                <h2>OK, so we’re all familiar with tic-tac-toe, right? The normal 9-square grid?</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe12-01.png?w=680&ssl=1" width="200">
+                <h2>Well, in ultimate tic-tac-toe, you’ve got a smaller grid within each of those 9 squares:</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe13-01.png?w=680&ssl=1" width="200">
+                <h2>To win the game, you have to win three of the larger squares in a row, and to win a large square, you have to win three in a row in the smaller grid inside it.<br><br>
+                Here’s how it works. Say X goes first:</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe0-01.png?w=680&ssl=1" width="200">
+                <h2>
+
+                    What it is: A much more strategic version of tic-tac-toe I learned from Math with Bad Drawings (he’s got a great explanation of the game, too)
+                    
+                    Best for: Two players
+                    
+                    What you need:
+                    
+                        Paper
+                        Something to write with
+                    
+                    How to play: OK, so we’re all familiar with tic-tac-toe, right? The normal 9-square grid?
+                    
+                    Well, in ultimate tic-tac-toe, you’ve got a smaller grid within each of those 9 squares:
+                    
+                    To win the game, you have to win three of the larger squares in a row, and to win a large square, you have to win three in a row in the smaller grid inside it.
+                    
+                    Here’s how it works. Say X goes first:
+                    
+                    Now, just like in normal tic-tac-toe, O gets to go. But O can’t just go anywhere. The smaller grid O must play in is determined by X’s move. So since X went in the bottom right corner within his small grid, O must go in the bottom right corner of the large grid:</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/09/ultimate-tic-tac-toe14-01.png?w=680&ssl=1" width="200">
+                <h2>So O goes, anywhere in this small grid he wants to:</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe2-01.png?w=680&ssl=1" width="200">
+                <h2>Now you know where X has to go, right?</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/09/ultimate-tic-tac-toe15-01.png?w=680&ssl=1" width="200">
+                <h2>A few moves down, the game might look like this:</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe6-01.png?w=680&ssl=1" width="200">
+                <h2>See what just happened in the far right middle square? X got three in a row! That means X wins that small grid, thus claiming that square in the large grid:</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe8-01.png?w=680&ssl=1" width="200">
+                <h2>Then it’s O’s turn again (O is still sent to the small grid determined by X’s last move). Eventually someone will claim three small grids in a row, thus winning the whole game:</h2>
+                <img src="https://i0.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe11-01.png?w=680&ssl=1" width="200">
+                <h2>ice job, X!
+
+                    As you can imagine, there’s a lot of strategy involved. You’ve got to keep in mind where you’re sending your opponent, thinking several moves ahead.
+                    
+                    One rule: If the player before you sends you to a grid that’s already been won, you get to go wherever you want. (So try not to send your opponent to an already-won grid!)
+                    
+                    Another rule you’ll need to decide on your own will be what to do with smaller grids that result in a tie. You could either count them for 1) neither X nor O or 2) both X and O. Try both ways and let me know which one you like more!
+                    
+                    Many thanks to Math with Bad Drawings for this fun and quite strategic game!</h2>      
+            </div>
         </main>
         <footer>
-            <a href="./result.html">לוח תוצאות</a>
-            <a href="./game.html">בית</a>
+            <a href="./result.html">Scoreboard</a><br><br>
+            <a href="./game.html">home page</a>
         </footer>
     </div>
 </body>
