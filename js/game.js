@@ -152,9 +152,6 @@ function setLocalTie(localSquareNumber) {
     //erase all little squares
     while (localSquare.firstChild)
         localSquare.removeChild(localSquare.lastChild);
-    localSquare.style.display = "block";
-    localSquare.style.textAlign = "center";
-    localSquare.style.fontSize = "7em";
     localSquare.style.backgroundColor = "gray";
     localSquare.classList.add("taken");
 }
