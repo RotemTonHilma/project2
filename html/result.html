@@ -26,74 +26,74 @@
         <img src="https://play-lh.googleusercontent.com/bPz1guJ6FHF3oIOEy3KqwpaDDKO-hLRaZoyzmM8bLFLN8fWm6L0_EuUnkwv9iqPo3Ag=s48"
             width="100">
     </header>
-        <main>
-            <div class="table">
-                <h2>Scoreboard</h2>
-                <table>
-                    <tr>
-                        <th>user name</th>
-                        <th>number of games won</th>
-                    </tr>
-                    <tr>
-                        <td id="user1"></td>
-                        <td id="first"></td>
-                    </tr>
-                    <tr>
-                        <td id="user2"></td>
-                        <td id="second"></td>
-                    </tr>
-                    <tr>
-                        <td id="user3"></td>
-                        <td id="third"></td>
-                    </tr>
-                </table>
-            </div>
-        </main>
-        <script>
+    <main>
+        <div class="table">
+            <h2>Scoreboard</h2>
+            <table>
+                <tr>
+                    <th>user name</th>
+                    <th>number of games won</th>
+                </tr>
+                <tr>
+                    <td id="user1"></td>
+                    <td id="first"></td>
+                </tr>
+                <tr>
+                    <td id="user2"></td>
+                    <td id="second"></td>
+                </tr>
+                <tr>
+                    <td id="user3"></td>
+                    <td id="third"></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <script>
 
-            const uArr = JSON.parse(localStorage["users"]);
+        const uArr = JSON.parse(localStorage["users"]);
 
-            function findMaxWins() {
-                let max = -1;
-                let maxIdx = -1;
-                let i = 0;
-                for (; i < uArr.length; i++) {
-                    if (uArr[i].wins > max) {
-                        max = uArr[i].wins;
-                        maxIdx = i;
-                    }
+        function findMaxWins() {
+            let max = -1;
+            let maxIdx = -1;
+            let i = 0;
+            for (; i < uArr.length; i++) {
+                if (uArr[i].wins > max) {
+                    max = uArr[i].wins;
+                    maxIdx = i;
                 }
-                return uArr.splice(maxIdx, 1)[0];
-
             }
-            let firstUser = findMaxWins();
-            document.getElementById('first').innerHTML = firstUser.wins;
-            document.getElementById('user1').innerHTML = firstUser.username;
+            return uArr.splice(maxIdx, 1)[0];
 
-            if (uArr.length > 0) {
-                let secondUser = findMaxWins();
-                document.getElementById('second').innerHTML = secondUser.wins;
-                document.getElementById('user2').innerHTML = secondUser.username;
-            }
+        }
+        let firstUser = findMaxWins();
+        document.getElementById('first').innerHTML = firstUser.wins;
+        document.getElementById('user1').innerHTML = firstUser.username;
 
-            if (uArr.length > 0) {
-                let thirdUser = findMaxWins();
-                document.getElementById('third').innerHTML = thirdUser.wins;
-                document.getElementById('user3').innerHTML = thirdUser.username;
-            }
+        if (uArr.length > 0) {
+            let secondUser = findMaxWins();
+            document.getElementById('second').innerHTML = secondUser.wins;
+            document.getElementById('user2').innerHTML = secondUser.username;
+        }
 
-            //cat audio
-            function meow(audioFile) {
-                new Audio(audioFile).play();
-            }
+        if (uArr.length > 0) {
+            let thirdUser = findMaxWins();
+            document.getElementById('third').innerHTML = thirdUser.wins;
+            document.getElementById('user3').innerHTML = thirdUser.username;
+        }
+
+        //cat audio
+        function meow(audioFile) {
+            new Audio(audioFile).play();
+        }
 
 
-        </script>
+    </script>
 
-        <footer>
-            <a href="./instruction.html">Instraction</a><br><br>
-            <a href="./game.html">home</a>
-        </footer>
+    <footer>
+        <a href="./instruction.html">Instructions</a><br><br>
+        <a href="./game.html">Home Page</a>
+    </footer>
     </div>
 </body>
 
