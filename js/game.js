@@ -235,3 +235,10 @@ function wonGlobal(sign) {
     ) return true;
     return false;
 }
+
+
+//cat audio
+function meow(audioFile) {
+    new Audio(audioFile).play();
+}
+
