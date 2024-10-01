@@ -10,24 +10,6 @@ const element = document.getElementById("myBtn");
 element.addEventListener("click", reset);
 
 reset();
-//insert cells
-// for (let i = 0; i < 9; i++) {
-//     let lildiv = document.createElement("div");
-//     container.appendChild(lildiv);
-//     for (let j = 0; j < 9; j++) {
-//         let smallestbtn = document.createElement("input");
-//         smallestbtn.setAttribute("type", "text");
-//         smallestbtn.setAttribute("readonly", "");
-//         smallestbtn.addEventListener("click", function () { btnClick(i, j) });
-//         lildiv.appendChild(smallestbtn);
-//     }
-// }
-
-// const cells = [];
-// for (let i = 0; i < 9; i++) {
-//     cells.push(container.children[i].getElementsByTagName("input"));
-// }
-
 
 function btnClick(localSquareNumber, smallSquareNumber) {
 
@@ -150,6 +132,7 @@ function wonLocal(localSquareNumber, sign) {
     return false;
 }
 
+
 function claimLocalSquare(localSquareNumber, sign) {
     localSquare = container.children[localSquareNumber];
     //erase all little squares
@@ -220,20 +203,53 @@ function checkGlobalWin() {
 }
 
 function wonGlobal(sign) {
-    if (
-        //row wins
-        (container.children[0].innerText === sign && container.children[1].innerText === sign && container.children[2].innerText === sign)
-        || (container.children[3].innerText === sign && container.children[4].innerText === sign && container.children[5].innerText === sign)
-        || (container.children[6].innerText === sign && container.children[7].innerText === sign && container.children[8].innerText === sign)
-        // column win
-        || (container.children[0].innerText === sign && container.children[3].innerText === sign && container.children[6].innerText === sign)
-        || (container.children[1].innerText === sign && container.children[4].innerText === sign && container.children[7].innerText === sign)
-        || (container.children[2].innerText === sign && container.children[5].innerText === sign && container.children[8].innerText === sign)
-        // axis win
-        || (container.children[0].innerText === sign && container.children[4].innerText === sign && container.children[8].innerText === sign)
-        || (container.children[2].innerText === sign && container.children[4].innerText === sign && container.children[6].innerText === sign)
-    ) return true;
+    if (container.children[0].innerText === sign && container.children[1].innerText === sign && container.children[2].innerText === sign) {
+        colorWin(0, 1, 2, sign);
+        return true;
+    }
+    if (container.children[3].innerText === sign && container.children[4].innerText === sign && container.children[5].innerText === sign) {
+        colorWin(3, 4, 5, sign);
+        return true;
+    }
+    if (container.children[6].innerText === sign && container.children[7].innerText === sign && container.children[8].innerText === sign) {
+        colorWin(6, 7, 8, sign);
+        return true;
+    }
+    // column win
+    if (container.children[0].innerText === sign && container.children[3].innerText === sign && container.children[6].innerText === sign) {
+        colorWin(0, 3, 6, sign);
+        return true;
+    }
+    if (container.children[1].innerText === sign && container.children[4].innerText === sign && container.children[7].innerText === sign) {
+        colorWin(1, 4, 7, sign);
+        return true;
+    }
+    if (container.children[2].innerText === sign && container.children[5].innerText === sign && container.children[8].innerText === sign) {
+        colorWin(2, 5, 8, sign);
+        return true;
+    }
+    // axis win
+    if (container.children[0].innerText === sign && container.children[4].innerText === sign && container.children[8].innerText === sign) {
+        colorWin(0, 4, 8, sign);
+        return true;
+    }
+    if (container.children[2].innerText === sign && container.children[4].innerText === sign && container.children[6].innerText === sign) {
+        colorWin(2, 4, 6, sign);
+        return true;
+    }
     return false;
+}
+
+function colorWin(idx1, idx2, idx3, sign) {
+    let color;
+    if (sign === "X") color = "rgb(180, 41, 83)";
+    else color = "rgb(56, 103, 189)";
+
+    container.children[idx1].style.color = color;
+    container.children[idx2].style.color = color;
+    container.children[idx3].style.color = color;
+
+
 }
 
 
