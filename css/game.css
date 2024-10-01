@@ -97,7 +97,6 @@ footer a {
 .instroction {
     background-color: white;
     color: black;
-    height: 3800px;
     width: 600px;
     line-height: 30px;
     font-family:italic;
@@ -105,7 +104,6 @@ footer a {
     h2{
         display: inline-block;
     }
-    
 }
 
 .logo {
@@ -116,3 +114,17 @@ footer a {
 .cat {
     border-radius: 20%;
 }
+table{
+    width: 100%;
+}
+.table{
+    border-collapse: collapse;
+    padding-left: 10px;
+}
+th, td {
+    padding: 10px;
+    line-height: 30px;
+    text-align: left;
+
+}
+
