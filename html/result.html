@@ -10,7 +10,8 @@
 
 <body>
     <div class="logo">
-        <img class="cat" src="../media/5d8741d291364bdf63dd8c28f34101cf_t.jpeg" alt="8 bit cat" width="100">
+        <img class="cat" src="../media/5d8741d291364bdf63dd8c28f34101cf_t.jpeg" alt="8 bit cat" width="100px"
+            onclick="meow('../media/kitty-meow-85182.mp3')">
         <p>Games</p>
     </div>
     <header>
@@ -79,6 +80,11 @@
                 let thirdUser = findMaxWins();
                 document.getElementById('third').innerHTML = thirdUser.wins;
                 document.getElementById('user3').innerHTML = thirdUser.username;
+            }
+
+            //cat audio
+            function meow(audioFile) {
+                new Audio(audioFile).play();
             }
 
 

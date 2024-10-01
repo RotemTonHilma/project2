@@ -5,39 +5,22 @@ html {
     color: white;
     font-family: 'Press Start 2P', sans-serif;
 }
-body{
+
+body {
     display: grid;
     grid-template-areas:
-    "l h h h h"
-    "f m m m m";
+        "l h h h h"
+        "f m m m m";
     column-gap: 200px;
     /* row-gap: 10px; */
     margin-left: 50px;
 
 }
+
 header {
     grid-area: h;
 }
 
-/* .front {
-    width: 100%;
-    height: 100%;
-    display:;
-    grid-template-columns: 80% 20%;
-    gap: 100px;
-    /* margin-top: 20px; */
-
-
-
-/* .game {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    /* gap: 100px; */
-    /* margin-top: 50px; */
-    /* flex-direction: row-reverse;
-*/ 
 
 main {
     width: 600px;
@@ -72,6 +55,8 @@ main {
     border: 1px solid black;
     text-align: center;
     font-size: 2em;
+    font-family: 'Press Start 2P', sans-serif;
+
 }
 
 main div {
@@ -98,9 +83,10 @@ footer a {
     color: black;
     width: 600px;
     line-height: 30px;
-    font-family:italic;
+    font-family: italic;
     padding-left: 10px;
-    h2{
+
+    h2 {
         display: inline-block;
     }
 }
@@ -113,14 +99,18 @@ footer a {
 .cat {
     border-radius: 20%;
 }
-table{
+
+table {
     width: 100%;
 }
-.table{
+
+.table {
     border-collapse: collapse;
     padding-left: 10px;
 }
-th, td {
+
+th,
+td {
     padding: 10px;
     line-height: 30px;
     text-align: left;
