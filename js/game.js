@@ -1,8 +1,6 @@
 const container = document.getElementById("square");
 let booly = true;
-let gameEnd = false;
-let isTie = false;
-let openAll = false;
+
 let cells = [];
 
 let numclick = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -67,6 +65,7 @@ function btnClick(localSquareNumber, smallSquareNumber) {
 }
 
 function reset() {
+
     for (let i = 0; i < numclick.length; i++) {
         numclick[i] = 0;
     }
@@ -86,6 +85,9 @@ function reset() {
         }
     }
 
+    gameEnd = false;
+    isTie = false;
+    openAll = false;
     cells = [];
     for (let i = 0; i < 9; i++) {
         cells.push(container.children[i].getElementsByTagName("input"));
