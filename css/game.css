@@ -91,7 +91,6 @@ footer a {
     color: white;
     font-size: 20px;
     text-decoration: none;
-    margin-left: 20px;
 }
 
 .instroction {
@@ -127,4 +126,23 @@ th, td {
     text-align: left;
 
 }
+footer #myBtn{
+ 
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 20px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'Press Start 2P', sans-serif;
+
+}
+footer #myBtn:hover {
+    background-color: black;
+    color: white;
+    font-family: 'Press Start 2P', sans-serif;
+  }
 
